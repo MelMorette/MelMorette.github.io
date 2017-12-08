@@ -1,6 +1,34 @@
+/**
+* bootstrap.js v3.0.0 by @fat and @mdo
+* Copyright 2013 Twitter Inc.
+* http://www.apache.org/licenses/LICENSE-2.0
+*/
 if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
+/* ========================================================================
+ * Bootstrap: transition.js v3.0.0
+ * http://twbs.github.com/bootstrap/javascript.html#transitions
+ * ========================================================================
+ * Copyright 2013 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ======================================================================== */
+
+
 +function ($) { "use strict";
+
+  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  // ============================================================
 
   function transitionEnd() {
     var el = document.createElement('bootstrap')
@@ -19,6 +47,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     }
   }
 
+  // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
     var called = false, $el = this
     $(this).one($.support.transition.end, function () { called = true })
@@ -33,10 +62,30 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
 }(window.jQuery);
 
-/
+/* ========================================================================
+ * Bootstrap: alert.js v3.0.0
+ * http://twbs.github.com/bootstrap/javascript.html#alerts
+ * ========================================================================
+ * Copyright 2013 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ======================================================================== */
 
 
 +function ($) { "use strict";
+
+  // ALERT CLASS DEFINITION
+  // ======================
 
   var dismiss = '[data-dismiss="alert"]'
   var Alert   = function (el) {
@@ -78,7 +127,9 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   }
 
 
- 
+  // ALERT PLUGIN DEFINITION
+  // =======================
+
   var old = $.fn.alert
 
   $.fn.alert = function (option) {
@@ -94,21 +145,46 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   $.fn.alert.Constructor = Alert
 
 
- 
+  // ALERT NO CONFLICT
+  // =================
+
   $.fn.alert.noConflict = function () {
     $.fn.alert = old
     return this
   }
 
+
+  // ALERT DATA-API
+  // ==============
+
   $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
 
 }(window.jQuery);
 
+/* ========================================================================
+ * Bootstrap: button.js v3.0.0
+ * http://twbs.github.com/bootstrap/javascript.html#buttons
+ * ========================================================================
+ * Copyright 2013 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ======================================================================== */
 
 
 +function ($) { "use strict";
 
-   ==============================
+  // BUTTON PUBLIC CLASS DEFINITION
+  // ==============================
 
   var Button = function (element, options) {
     this.$element = $(element)
@@ -131,7 +207,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     $el[val](data[state] || this.options[state])
 
-   
+    // push to event loop to allow forms to submit
     setTimeout(function () {
       state == 'loadingText' ?
         $el.addClass(d).attr(d, d) :
@@ -153,6 +229,9 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   }
 
 
+  // BUTTON PLUGIN DEFINITION
+  // ========================
+
   var old = $.fn.button
 
   $.fn.button = function (option) {
@@ -171,13 +250,17 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   $.fn.button.Constructor = Button
 
 
- ==================
+  // BUTTON NO CONFLICT
+  // ==================
 
   $.fn.button.noConflict = function () {
     $.fn.button = old
     return this
   }
 
+
+  // BUTTON DATA-API
+  // ===============
 
   $(document).on('click.bs.button.data-api', '[data-toggle^=button]', function (e) {
     var $btn = $(e.target)
@@ -188,11 +271,31 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
 }(window.jQuery);
 
+/* ========================================================================
+ * Bootstrap: carousel.js v3.0.0
+ * http://twbs.github.com/bootstrap/javascript.html#carousel
+ * ========================================================================
+ * Copyright 2012 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ======================================================================== */
 
 
 +function ($) { "use strict";
 
- 
+  // CAROUSEL CLASS DEFINITION
+  // =========================
+
   var Carousel = function (element, options) {
     this.$element    = $(element)
     this.$indicators = this.$element.find('.carousel-indicators')
