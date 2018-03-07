@@ -5,8 +5,9 @@
         <title>Biblioteca - Perfil</title>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->  
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================--> 
+	<link rel="icon" href="images/logo.png" type="image/png" />
+    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -18,16 +19,16 @@
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/perfil.css">
-<!--=================================================================S==============================-->
+    <link rel="stylesheet" type="text/css" href="perfil.css">
+<!--===============================================================================================-->
+
+
+
+		
 
     </head>
-	
 <body>
-    <div class="back">
-        <img src="images/background.jpg">
-            <div class=conteiner>
+	<div class="conteiner">
                 <div class="menu">
                 <i class="fa fa-book" aria-hidden="true"></i>                 
                 <a href="lista.html">Lista de Livros</a>
@@ -44,19 +45,19 @@
             <div class="photo-user">
                 <img src="images/user.png">
             </div>
-                <div class="details">
-                    <p>Nome</p>
-                    <p>Sobrenome</p>
-                    <p>Email</p>
-
-                </div>
-
-
+			<div class="details">
+					<p>Nome: <span> Fulano </span></p>
+					<p>Sobrenome: <span> Da Silva </span></p>
+					<p>Nome de Usuário: <span> Eu </span></p>
+					<p>Email: <span> example@email.com </span></p>
+					<p>RG: <span> 12.345.678-9 </span></p>
+					<p>CPF: <span> 123.456.789-00 </span></p>
+				<div id="user">
+				
+				</div>
+				
+			</div>
         </div>
-</div>
-    
-    
-
     
 <!--===============================================================================================-->  
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -75,6 +76,5 @@
 <!--===============================================================================================-->
     <script src="js/main(2).js"></script>
 
-</body>
-	
+	</body>
 </html>
